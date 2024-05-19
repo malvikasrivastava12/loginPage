@@ -7,7 +7,7 @@ function validateForm(){
     var password = document.getElementById('pass').value;
     if(username==='malvika' && password==='1234'){
         console.log("username and password match");
-        window.location.href="home.html";
+      
         return retrunVal;
         }
         // else if(username===""|| password=="")  {
@@ -27,12 +27,32 @@ function validateForm(){
                 document.getElementById("pass-error").innerText="Please enter password"
                 return false;
             }
-          
-            else if (username!="malvika" && password!="1234"){
+            else if (username!='malvika' && password!='1234') {
                 document.getElementById("name-error").innerText="Please enter correct username"  
                 document.getElementById("pass-error").innerText="Please enter correct password"
+            }
+            else if (username === "") {
+                document.getElementById("name-error").innerText = "Username cannot be empty";
+                document.getElementById("pass-error").innerText = "";
+                return false;
+            } else if (password === "") {
+                document.getElementById("name-error").innerText = "";
+                document.getElementById("pass-error").innerText = "Please enter password";
                 return false;
             }
+                
+            else if (username!="malvika") {
+                document.getElementById("name-error").innerText="Please enter correct username"  
+                document.getElementById("pass-error").innerText = "";
+                return false;
+            }
+            else if (username!="1234") {
+                document.getElementById("name-error").innerText = "";
+                document.getElementById("pass-error").innerText="Please enter correct password"
+                return false;
+            }  
+           
+
         }
         
         window.onload = function() {
@@ -48,4 +68,4 @@ function validateForm(){
             });
         };
 
-
+       
